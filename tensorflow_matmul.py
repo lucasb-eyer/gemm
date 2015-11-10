@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+
+import sys
+import time
+import numpy as np
+import tensorflow as tf
+
+device = sys.argv[1] if len(sys.argv) > 1 else "/gpu:0"
+
+with tf.device(device):
+    A = tf.Variable(tf.random_normal((10*1024, 10*1024)), name="A")
+    B = tf.Variable(tf.random_normal((10*1024, 10*1024)), name="B")
+    C = tf.matmul(A, B)
+
+with tf.Session() as s:
+    s.run(tf.initialize_all_variables())
+    s.run(C)
+
+    tmin = 100
+    for _ in range(10):
+        t0 = time.time()
+        s.run(C)
+        t1 = time.time()
+        tmin = min(t1-t0, tmin)
+
+print(tmin)
