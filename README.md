@@ -18,8 +18,16 @@ These are commands for the [fish shell](http://fishshell.com), adapt accordingly
 
 Compiled with OpenBLAS build.
 
+On the CPU:
+
 ```
 julia julia_matmul.jl
+```
+
+On the GPU:
+
+```
+julia julia_matmul_cuda.jl
 ```
 
 ### Theano
@@ -57,6 +65,7 @@ python tensorflow_matmul.py "/gpu:0"
 ## Results
 
 - Julia CPU: 4.3072s
+- Julia GPU: 0.5368s
 - Theano CPU: 4.3492s
 - Theano GPU: 0.6000s
 - Tensorflow CPU: 13.3393s
