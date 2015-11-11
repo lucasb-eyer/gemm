@@ -16,6 +16,7 @@ tmin = Inf
 for i=1:10
     tic()
     d_C = gemm('N', 'N', d_A, d_B)
+    to_host(d_C)  # This is here for fairness to others which always transfer the result back to the host.
     device_synchronize()
     tmin = min(tmin, toc())
 
