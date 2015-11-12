@@ -5,8 +5,9 @@ import numpy as np
 import theano as th
 import theano.tensor as T
 
-A = th.shared(np.random.randn(10*1024, 10*1024).astype(th.config.floatX), name="A")
-B = th.shared(np.random.randn(10*1024, 10*1024).astype(th.config.floatX), name="B")
+N = 10
+A = th.shared(np.random.randn(N*1024,N*1024).astype(th.config.floatX), name="A")
+B = th.shared(np.random.randn(N*1024,N*1024).astype(th.config.floatX), name="B")
 C = T.dot(A, B)
 
 fn = th.function([], C)

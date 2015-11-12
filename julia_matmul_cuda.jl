@@ -4,8 +4,9 @@ using CUBLAS
 
 device(0)
 
-const d_A = CudaArray(map(Float32, randn(10240,10240)))
-const d_B = CudaArray(map(Float32, randn(10240,10240)))
+const N = 10
+const d_A = CudaArray(map(Float32, randn(N*1024,N*1024)))
+const d_B = CudaArray(map(Float32, randn(N*1024,N*1024)))
 
 d_C = gemm('N', 'N', d_A, d_B)
 device_synchronize()

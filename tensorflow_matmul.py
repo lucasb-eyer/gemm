@@ -6,10 +6,11 @@ import numpy as np
 import tensorflow as tf
 
 device = sys.argv[1] if len(sys.argv) > 1 else "/gpu:0"
+N = 10
 
 with tf.device(device):
-    A = tf.Variable(tf.random_normal((10*1024, 10*1024)), name="A")
-    B = tf.Variable(tf.random_normal((10*1024, 10*1024)), name="B")
+    A = tf.Variable(tf.random_normal((N*1024,N*1024)), name="A")
+    B = tf.Variable(tf.random_normal((N*1024,N*1024)), name="B")
     C = tf.matmul(A, B)
 
 # with tf.device('/cpu:0'):

@@ -1,5 +1,6 @@
-const A = map(Float32, randn(10*1024, 10*1024));
-const B = map(Float32, randn(10*1024, 10*1024));
+const N = 10
+const A = map(Float32, randn(N*1024,N*1024));
+const B = map(Float32, randn(N*1024,N*1024));
 
 A*B
 
