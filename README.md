@@ -67,9 +67,9 @@ python tensorflow_matmul.py "/gpu:0"
 - Julia CPU: 4.3072s
 - Julia GPU: 0.5368s
 - Theano CPU: 4.3492s
-- Theano GPU: 0.6000s
+- Theano GPU: 0.6838s (0.6000s without `np.array`)
 - Tensorflow CPU: 13.3393s
-- Tensorflow GPU: 0.6979s
+- Tensorflow GPU: 0.6979s  (0.6106s without `np.array`)
 
 ## Additional output
 

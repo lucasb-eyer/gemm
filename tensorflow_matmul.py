@@ -12,14 +12,19 @@ with tf.device(device):
     B = tf.Variable(tf.random_normal((10*1024, 10*1024)), name="B")
     C = tf.matmul(A, B)
 
+# with tf.device('/cpu:0'):
+#    D = tf.identity(C)
+
 with tf.Session() as s:
     s.run(tf.initialize_all_variables())
     s.run(C)
+    # s.run(D.op)
 
     tmin = 100
     for _ in range(10):
         t0 = time.time()
         s.run(C)
+        # s.run(D.op)
         t1 = time.time()
         tmin = min(t1-t0, tmin)
 

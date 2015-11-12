@@ -15,7 +15,7 @@ fn()
 tmin = 100
 for _ in range(10):
     t0 = time.time()
-    fn()
+    C_np = np.array(fn())
     t1 = time.time()
     tmin = min(t1-t0, tmin)
 
